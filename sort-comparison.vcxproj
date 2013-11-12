@@ -74,6 +74,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\AlgorithmRunner.h" />
+    <ClInclude Include="src\BucketSortArray.h" />
     <ClInclude Include="src\FileArrayInterface.h" />
     <ClInclude Include="src\HeapSortArray.h" />
     <ClInclude Include="src\MemoryArrayInterface.h" />
@@ -83,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AlgorithmRunner.cpp" />
+    <ClCompile Include="src\BucketSortArray.cpp" />
     <ClCompile Include="src\FileArrayInterface.cpp" />
     <ClCompile Include="src\HeapSortArray.cpp" />
     <ClCompile Include="src\MemoryArrayInterface.cpp" />

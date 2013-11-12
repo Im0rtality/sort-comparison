@@ -2,6 +2,7 @@
 #include "AlgorithmRunner.h"
 #include "MergeSortArray.h"
 #include "HeapSortArray.h"
+#include "BucketSortArray.h"
 
 int i, num = 32;
 
@@ -17,6 +18,7 @@ AlgorithmRunner * runner;
 int main()
 {
 	//runner = new MergeSortArray();
+	//runner = new HeapSortArray();
 	runner = new HeapSortArray();
 
     for (i = 0; i <= runner->num - 1; i++) {
