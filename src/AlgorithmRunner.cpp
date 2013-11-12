@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "AlgorithmRunner.h"
 
 AlgorithmRunner::AlgorithmRunner()
@@ -8,4 +8,10 @@ AlgorithmRunner::AlgorithmRunner()
 
 void AlgorithmRunner::run(void)
 {
+}
+
+Node * AlgorithmRunner::head() 
+{
+		Node * node = new Node(this->a, 0);
+		return node;
 }
