@@ -1,12 +1,12 @@
 #include "stdafx.h"
+#include <typeinfo>
 #include "AlgorithmRunner.h"
 #include "MergeSortArray.h"
 #include "HeapSortArray.h"
 #include "BucketSortArray.h"
+#include "MergeSortLinkedList.h"
 
-int i, num = 32;
-
-AlgorithmRunner * runner;
+int i;
 
 //void generateData()
 //{
@@ -17,23 +17,26 @@ AlgorithmRunner * runner;
 
 int main()
 {
-	//runner = new MergeSortArray();
-	//runner = new HeapSortArray();
-	runner = new HeapSortArray();
+	//MergeSortArray * runner = new MergeSortArray();
+	HeapSortArray * runner = new HeapSortArray();
+	//BucketSortArray * runner = new BucketSortArray();
+	//MergeSortLinkedList * runner = new MergeSortLinkedList();
 
-    for (i = 0; i <= runner->num - 1; i++) {
-		printf("%d\t", runner->a->get(i));
-	}
-    printf("\n");
+	printf("Runner: %s\n", typeid(runner).name());
+	printf("Element count: %d\n", runner->num);
+	//for (i = 0; i <= runner->num - 1; i++) {
+	//	printf("%d\t", runner->a->get(i));
+	//}
+	//printf("\n");
 
 	runner->run();
 
-    for (i = 0; i <= runner->num - 1; i++) {
-		printf("%d\t", runner->a->get(i));
-	}
-    printf("\n");
+	printf("IO: %d\n", runner->a->io);
+	//for (i = 0; i <= runner->num - 1; i++) {
+	//	printf("%d\t", runner->a->get(i));
+	//}
+	//printf("\n");
 
-    //generateData();
-
+	//generateData();
     return 0;
 }

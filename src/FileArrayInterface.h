@@ -12,5 +12,6 @@ public:
 	void random(int count);
 	unsigned char get(int index);
 	void set(int index, unsigned char value);
+	int io;
 };
 
