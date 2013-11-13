@@ -12,6 +12,12 @@ void AlgorithmRunner::run(void)
 
 Node * AlgorithmRunner::head() 
 {
-		Node * node = new Node(this->a, 0);
-		return node;
+	Node * head = new Node(this->a, 0);
+	Node * current = head;
+	for (int i = 1; i < AlgorithmRunner::num; i++) {
+		current->next = new Node(this->a, i);
+		current = current->next;
+	}
+	current->next = NULL;
+	return head;
 }
