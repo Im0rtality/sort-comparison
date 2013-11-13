@@ -3,8 +3,10 @@
 
 class HeapSortArray:public AlgorithmRunner {
   private:
-    void makeheap(int n);
-    void sortheap();
+    void buildheap(int n);
+	void heapify(int heapsize, int root);
+    void heapsort();
+	void swap(int x, int y);
   public:
     void run();
 };

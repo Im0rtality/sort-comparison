@@ -1,39 +1,56 @@
 #include "StdAfx.h"
 #include "HeapSortArray.h"
 #include "FileArrayInterface.h"
-#include "MemoryArrayInterface.h"
+#include <math.h>
 
 void HeapSortArray::run(void)
 {
-	this->makeheap(this->num);
-	this->sortheap();
+	heapsort();
 }
-
-void HeapSortArray::makeheap(int n)
+void HeapSortArray::heapify(int heapsize, int root) //(takes O(h) time, h is the height of root
 {
-    unsigned char temp;
-    int i, k, j;
-    for (i = 1; i < n; i++)
-    {
-	temp = this->a->get(i);
-	k = (i - 1) / 2;
-	j = i;
-	while (j > 0 && this->a->get(k) < temp) {
-	    this->a->set(j, this->a->get(k));
-	    j = k;
-	    k = (j - 1) / 2;
+	int left = 2*root+1, 
+		right = 2*root +2,
+		largest;
+	
+	if ( (left < heapsize) && (this->a->get(left) > this->a->get(root)))
+		largest = left;
+	else 
+		largest = root;
+	
+	if ( (right < heapsize) && (this->a->get(right) > this->a->get(largest)))
+		largest = right;
+		
+	if (largest != root)
+	{
+		swap(root, largest);
+		heapify(heapsize, largest);
 	}
-	this->a->set(j, temp);
-    }
 }
 
-void HeapSortArray::sortheap()
+void HeapSortArray::swap(int x, int y)
 {
-    int temp, i, j;
-    for (i = this->num - 1; i >= 1; i--) {
-	temp = this->a->get(i);
-	this->a->set(i, this->a->get(0));
-	this->a->set(0, temp);
-	this->makeheap(i);
-    }
+	int temp;
+	
+	temp = this->a->get(x);
+	this->a->set(x, this->a->get(y));
+	this->a->set(y, temp);
+}
+
+void HeapSortArray::heapsort()
+{
+	int heapsize = this->num;
+	
+	buildheap(this->num);	//Take the unsorted list and make it a heap
+	for (int i = this->num-1; i >=1; i--)
+	{
+		swap(0, i);
+		heapsize--;
+		heapify(heapsize, 0);		
+	}
+}
+void HeapSortArray::buildheap(int length)	//     (takes O(n) time)
+{	
+	for (int i = (int)floor((float)(length)/2); i >= 0 ; i--)
+		heapify(length, i);
 }
