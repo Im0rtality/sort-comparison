@@ -4,16 +4,7 @@
 #include "MergeSortArray.h"
 #include "HeapSortArray.h"
 #include "BucketSortArray.h"
-#include "MergeSortLinkedList.h"
-
-int i;
-
-//void generateData()
-//{
-//    FileArrayInterface *fai = new FileArrayInterface(1, "data\\data.bin");
-//
-//    fai->random(32);
-//}
+//#include "MergeSortLinkedList.h"
 
 int main()
 {
@@ -24,19 +15,9 @@ int main()
 
 	printf("Runner: %s\n", typeid(runner).name());
 	printf("Element count: %d\n", runner->num);
-	//for (i = 0; i <= runner->num - 1; i++) {
-	//	printf("%d\t", runner->a->get(i));
-	//}
-	//printf("\n");
 
 	runner->run();
 
 	printf("IO: %d\n", runner->a->io);
-	//for (i = 0; i <= runner->num - 1; i++) {
-	//	printf("%d\t", runner->a->get(i));
-	//}
-	//printf("\n");
-
-	//generateData();
     return 0;
 }
