@@ -1,8 +1,10 @@
 #pragma once
+#include <stdint.h>
+
 class MemoryArrayInterface
 {
 private:
-	unsigned char data[32];
+	uint8_t * data;
 public:
 	MemoryArrayInterface();
 	unsigned char get(int index);

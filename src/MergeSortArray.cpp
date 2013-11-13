@@ -16,7 +16,7 @@ void MergeSortArray::merge_sort(int low, int high)
 
 void MergeSortArray::merge(int low, int mid, int high)
 {
-	MemoryArrayInterface b = MemoryArrayInterface();
+	MemoryArrayInterface * b = new MemoryArrayInterface();
     int h, i, j, k;
     h = low;
     i = low;
@@ -24,28 +24,29 @@ void MergeSortArray::merge(int low, int mid, int high)
 
     while ((h <= mid) && (j <= high)) {
 		if (this->a->get(h) <= this->a->get(j)) {
-			b.set(i, this->a->get(h));
+			b->set(i, this->a->get(h));
 			h++;
 		} else {
-			b.set(i, this->a->get(j));
+			b->set(i, this->a->get(j));
 			j++;
 		}
 		i++;
 	}
 	if (h > mid) {
 		for (k = j; k <= high; k++) {
-			b.set(i, this->a->get(k));
+			b->set(i, this->a->get(k));
 			i++;
 		}
 	} else {
 		for (k = h; k <= mid; k++) {
-			b.set(i, this->a->get(k));
+			b->set(i, this->a->get(k));
 			i++;
 		}
     }
     for (k = low; k <= high; k++) {
-		this->a->set(k, b.get(k));
+		this->a->set(k, b->get(k));
     }
+	delete b;
 }
 
 void MergeSortArray::run(void)
